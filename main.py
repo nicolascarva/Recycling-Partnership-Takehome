@@ -7,10 +7,12 @@ class Match:
 
     def __init__(self, text):
         self.pattern_list= []
+        if isinstance(text, list):
+            text = " ".join(text)
         self.words = self.clean_text(text)
 
     def add_patterns(self, patterns):
-        for pattern in patterns:
+        for pattern in patterns.items():
             self.pattern_list.append(self.Pattern(pattern))
 
 
@@ -27,7 +29,7 @@ class Match:
                 self.matches[pat.pattern_name] = []
                 for word in self.words:
                     for ind_pat in pat.pattern_group:
-                        if ind_pat in word:
+                        if ind_pat in word and word not in self.matches[pat.pattern_name]:
                             self.matches[pat.pattern_name].append(word)
         print('Matches for ', pattern_names, ': ', self.matches )
         return self.matches
