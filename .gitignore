@@ -5,3 +5,4 @@
 *.iml
 __pycache__/helper_functions.cpython-38.pyc
 *.pyc
+.ipynb_checkpoints/takehome-checkpoint.ipynb
