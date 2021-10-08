@@ -23,13 +23,13 @@ def clean_text(text):
 class Match:
     """"This class creates an object with the text that will be searched through. The add_patterns method is used
     to add patterns for searching. The match_patterns method will search through the named patterns (all if none is
-    specified). The change_text method updates the text to be changed (this could also be done by instantiating
+    specified). The change_text method updates the text to be searched (this could also be done by instantiating
     a new object"""
     def __init__(self, text):
         self.pattern_list = []  # Keeps track of patterns in object
         if isinstance(text, list):  # Change list to text
             text = " ".join(text)
-        self.words = clean_text(text)  # Text to be searched
+        self.words = clean_text(text)  # Text to be searched and cleaned
         self.matches = {}
 
     def add_patterns(self, patterns):
